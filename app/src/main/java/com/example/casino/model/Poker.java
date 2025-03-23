@@ -653,16 +653,17 @@ public class Poker extends Card_Game {
         Log.e(TAG, resultType.toString());
         return resultType;
     }
+
+    protected class Wrap_Vector_Cards {
+        public Vector<Card> cards;
+
+        public Wrap_Vector_Cards(Vector<Card> input) {
+            cards = new Vector<>(input);
+        }
+
+        public Wrap_Vector_Cards() {
+            cards = new Vector<>();
+        }
+    }
 }
 
-class Wrap_Vector_Cards {
-    public Vector<Card> cards;
-
-    public Wrap_Vector_Cards(Vector<Card> input) {
-        cards = new Vector<>(input);
-    }
-
-    public Wrap_Vector_Cards() {
-        cards = new Vector<>();
-    }
-}

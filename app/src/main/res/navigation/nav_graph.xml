@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.casino.fragment.mainFragment"
+        android:name="com.example.casino.screens.mainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/clientMenuFragment"
-        android:name="com.example.casino.fragment.ClientMenuFragment"
+        android:name="com.example.casino.screens.ClientMenuFragment"
         android:label="fragment_client_menu"
         tools:layout="@layout/fragment_client_menu" >
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/gameMenuFragment"
-        android:name="com.example.casino.fragment.GameMenuFragment"
+        android:name="com.example.casino.screens.GameMenuFragment"
         android:label="GameMenuFragment" >
         <action
             android:id="@+id/action_gameMenuFragment_to_threeCardsFragment"
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/pokerFragment"
-        android:name="com.example.casino.fragment.PokerFragment"
+        android:name="com.example.casino.screens.PokerFragment"
         android:label="fragment_poker"
         tools:layout="@layout/fragment_poker" >
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/threeCardsFragment"
-        android:name="com.example.casino.fragment.ThreeCardsFragment"
+        android:name="com.example.casino.screens.ThreeCardsFragment"
         android:label="fragment_three_cards"
         tools:layout="@layout/fragment_three_cards" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/endGameFragment"
-        android:name="com.example.casino.fragment.EndGameFragment"
+        android:name="com.example.casino.screens.EndGameFragment"
         android:label="fragment_end_game"
         tools:layout="@layout/fragment_end_game" />
 </navigation>

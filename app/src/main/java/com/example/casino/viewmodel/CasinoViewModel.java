@@ -164,18 +164,21 @@ public class CasinoViewModel extends ViewModel {
 
     public void setLinkFirstCardBot(String value) {
         if (m_listLinkCardsBot.get(0) != value) {
+            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsBot.set(0, value);
         }
     }
 
     public void setLinkSecondCardBot(String value) {
         if (m_listLinkCardsBot.get(1) != value) {
+            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsBot.set(1, value);
         }
     }
 
     public void setLinkThirdCardBot(String value) {
         if (m_listLinkCardsBot.get(2) != value) {
+            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsBot.set(2, value);
         }
     }
@@ -186,6 +189,7 @@ public class CasinoViewModel extends ViewModel {
 
     public void setLinkFirstCardPlayer(String value) {
         if (m_listLinkCardsPlayer.get(0) != value) {
+            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsPlayer.set(0, value);
             mListLinkCardsPlayerLiveData.setValue(m_listLinkCardsPlayer);
         }
@@ -193,6 +197,7 @@ public class CasinoViewModel extends ViewModel {
 
     public void setLinkSecondCardPlayer(String value) {
         if (m_listLinkCardsPlayer.get(1) != value) {
+            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsPlayer.set(1, value);
             mListLinkCardsPlayerLiveData.setValue(m_listLinkCardsPlayer);
         }
