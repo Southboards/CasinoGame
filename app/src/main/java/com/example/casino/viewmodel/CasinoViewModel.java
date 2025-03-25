@@ -184,29 +184,35 @@ public class CasinoViewModel extends ViewModel {
     }
 
     public void setLinkCardsBotLiveData() {
-        mListLinkCardsBotLiveData.setValue(m_listLinkCardsBot);
+        mListLinkCardsBotLiveData.setValue(new ArrayList<>(m_listLinkCardsBot));
+    }
+
+    public void setLinkCardsPlayerLiveData() {
+        mListLinkCardsPlayerLiveData.setValue(new ArrayList<>(m_listLinkCardsPlayer));
+    }
+
+    public void setLinkCardsTableLiveData() {
+        mListLinkCardsTableLiveData.setValue(new ArrayList<>(m_listLinkCardsTable));
     }
 
     public void setLinkFirstCardPlayer(String value) {
         if (m_listLinkCardsPlayer.get(0) != value) {
-            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsPlayer.set(0, value);
-            mListLinkCardsPlayerLiveData.setValue(m_listLinkCardsPlayer);
+            setLinkCardsPlayerLiveData();
         }
     }
 
     public void setLinkSecondCardPlayer(String value) {
         if (m_listLinkCardsPlayer.get(1) != value) {
-            Log.i("ThreeCards", "Link: " + value);
             m_listLinkCardsPlayer.set(1, value);
-            mListLinkCardsPlayerLiveData.setValue(m_listLinkCardsPlayer);
+            setLinkCardsPlayerLiveData();
         }
     }
 
     public void setLinkThirdCardPlayer(String value) {
         if (m_listLinkCardsPlayer.get(2) != value) {
             m_listLinkCardsPlayer.set(2, value);
-            mListLinkCardsPlayerLiveData.setValue(m_listLinkCardsPlayer);
+            setLinkCardsPlayerLiveData();
         }
     }
 
@@ -220,35 +226,35 @@ public class CasinoViewModel extends ViewModel {
     public void setLinkFirstCardTable(String value) {
         if (m_listLinkCardsTable.get(0) != value) {
             m_listLinkCardsTable.set(0, value);
-            mListLinkCardsTableLiveData.setValue(m_listLinkCardsTable);
+            setLinkCardsTableLiveData();
         }
     }
 
     public void setLinkSecondCardTable(String value) {
         if (m_listLinkCardsTable.get(1) != value) {
             m_listLinkCardsTable.set(1, value);
-            mListLinkCardsTableLiveData.setValue(m_listLinkCardsTable);
+            setLinkCardsTableLiveData();
         }
     }
 
     public void setLinkThirdCardTable(String value) {
         if (m_listLinkCardsTable.get(2) != value) {
             m_listLinkCardsTable.set(2, value);
-            mListLinkCardsTableLiveData.setValue(m_listLinkCardsTable);
+            setLinkCardsTableLiveData();
         }
     }
 
     public void setLinkFourthCardTable(String value) {
         if (m_listLinkCardsTable.get(3) != value) {
             m_listLinkCardsTable.set(3, value);
-            mListLinkCardsTableLiveData.setValue(m_listLinkCardsTable);
+            setLinkCardsTableLiveData();
         }
     }
 
     public void setLinkFifthCardTable(String value) {
         if (m_listLinkCardsTable.get(4) != value) {
             m_listLinkCardsTable.set(4, value);
-            mListLinkCardsTableLiveData.setValue(m_listLinkCardsTable);
+            setLinkCardsTableLiveData();
         }
     }
 
@@ -257,7 +263,7 @@ public class CasinoViewModel extends ViewModel {
     }
 
     public void setResultPlayersLiveData() {
-        mListResultPlayersLiveData.setValue(m_listResultPlayers);
+        mListResultPlayersLiveData.setValue(new ArrayList<>(m_listResultPlayers));
     }
 
     public void Process_EI_Button_Login(String accountInput, String passWordInput) {
