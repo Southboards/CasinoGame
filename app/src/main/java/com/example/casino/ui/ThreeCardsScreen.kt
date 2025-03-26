@@ -1,4 +1,4 @@
-package com.example.casino.Ui_Jetpack
+package com.example.casino.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

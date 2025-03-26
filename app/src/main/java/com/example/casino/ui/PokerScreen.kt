@@ -1,4 +1,4 @@
-package com.example.casino.Ui_Jetpack
+package com.example.casino.ui
 
 import android.os.Handler
 import android.os.Looper
@@ -29,8 +29,11 @@ fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
     val results by userViewModel.listResultPlayersLiveData.observeAsState(listOf("NONE", "NONE"))
     val isEndGame by userViewModel.endGameLiveData.observeAsState(false)
 
-    if (isEndGame) {
+    var hasNavigated by remember { mutableStateOf(false) }
+
+    if (isEndGame && !hasNavigated) {
         showResultGame(results)
+        hasNavigated = true
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
             navigateToEndGameScreen(navController)
@@ -54,8 +57,6 @@ fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
         // Row 2: Table cards (5 cards)
         CardRowPoker(userViewModel, cards = tableCards.take(5), isPlayer = false)
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -150,11 +151,6 @@ fun FoldButton(onClick: () -> Unit) {
 
 fun handleFoldClick(userViewModel: CasinoViewModel, navController: NavController) {
     userViewModel.Process_EI_Button_Fold()
-
-    val handler = Handler(Looper.getMainLooper())
-    handler.postDelayed({
-        navigateToEndGameScreen(navController)
-    }, 3000)
 }
 
 fun handleBetClickPoker(userViewModel: CasinoViewModel, navController: NavController, betAmount: Int) {

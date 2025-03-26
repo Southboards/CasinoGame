@@ -1,11 +1,10 @@
 package com.example.casino.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.casino.Ui_Jetpack.*
+import com.example.casino.ui.*
 import com.example.casino.viewmodel.CasinoViewModel
 
 @Composable

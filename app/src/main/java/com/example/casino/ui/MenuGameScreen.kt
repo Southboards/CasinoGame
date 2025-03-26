@@ -1,4 +1,4 @@
-package com.example.casino.Ui_Jetpack
+package com.example.casino.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button

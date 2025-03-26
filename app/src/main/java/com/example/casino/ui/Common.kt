@@ -1,4 +1,4 @@
-package com.example.casino.Ui_Jetpack
+package com.example.casino.ui
 
 import android.content.res.Resources
 import android.widget.Toast

@@ -1,6 +1,5 @@
-package com.example.casino.Ui_Jetpack
+package com.example.casino.ui
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button

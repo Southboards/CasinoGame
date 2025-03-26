@@ -1,7 +1,5 @@
 package com.example.casino.viewmodel;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.annotation.SuppressLint;
 import android.util.Log;
 
@@ -396,6 +394,7 @@ public class CasinoViewModel extends ViewModel {
         poker_game.tableOwner.cardOwned.get(3).setStatus(true);
         poker_game.tableOwner.cardOwned.get(4).setStatus(true);
         setMoneyPlayer(m_player.getMoney() - game_controller.moneyBet);
+        setMoneyBetLiveData(-game_controller.moneyBet);
         setLinkWinLose("you_lose");
         Show_All_Cards();
         Update_Link_Cards();
