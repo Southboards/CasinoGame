@@ -55,7 +55,7 @@ fun MenuGameScreen(userViewModel: CasinoViewModel, navController: NavController)
 @Preview(showBackground = true)
 @Composable
 fun MenuGameScreenPreview() {
-    val navController = rememberNavController()
-    val userViewModel = CasinoViewModel()
-    MenuGameScreen(userViewModel = userViewModel, navController = navController)
+    //val navController = rememberNavController()
+    //val userViewModel = CasinoViewModel()
+    //MenuGameScreen(userViewModel = userViewModel, navController = navController)
 }

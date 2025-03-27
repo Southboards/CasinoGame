@@ -30,7 +30,7 @@ import com.example.casino.viewmodel.CasinoViewModel
 @Composable
 fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
-    val message = userViewModel.messageLoginRegisterLiveData.observeAsState(initial = "")
+    val message = userViewModel.getMessageLoginRegisterLiveData().observeAsState(initial = "")
 
     val context = LocalContext.current
 
@@ -126,8 +126,8 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
 @Preview(showBackground = false)
 @Composable
 fun MainScreenPreview() {
-    val navController = rememberNavController()
-    val userViewModel = CasinoViewModel()
+    //val navController = rememberNavController()
+    //val userViewModel = CasinoViewModel()
 
-    MainScreen(userViewModel = userViewModel, navController = navController)
+    //MainScreen(userViewModel = userViewModel, navController = navController)
 }

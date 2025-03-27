@@ -24,11 +24,11 @@ import androidx.compose.ui.platform.LocalConfiguration
 
 @Composable
 fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
-    val botCards by userViewModel.listLinkCardsBotLiveData.observeAsState(emptyList())
-    val playerCards by userViewModel.listLinkCardsPlayerLiveData.observeAsState(emptyList())
-    val tableCards by userViewModel.listLinkCardsTableLiveData.observeAsState(emptyList())
-    val results by userViewModel.listResultPlayersLiveData.observeAsState(listOf("NONE", "NONE"))
-    val isEndGame by userViewModel.endGameLiveData.observeAsState(false)
+    val botCards by userViewModel.getListLinkCardsBotLiveData().observeAsState(emptyList())
+    val playerCards by userViewModel.getListLinkCardsPlayerLiveData().observeAsState(emptyList())
+    val tableCards by userViewModel.getListLinkCardsTableLiveData().observeAsState(emptyList())
+    val results by userViewModel.getListResultPlayersLiveData().observeAsState(listOf("NONE", "NONE"))
+    val isEndGame by userViewModel.getEndGameLiveData().observeAsState(false)
 
     var hasNavigated by remember { mutableStateOf(false) }
 
@@ -175,7 +175,7 @@ fun handleBetClickPoker(userViewModel: CasinoViewModel, navController: NavContro
 @Preview(showBackground = true)
 @Composable
 fun PokerGameScreenPreview() {
-    val userViewModel = CasinoViewModel()
-    val navController = rememberNavController()
-    PokerScreen(userViewModel = userViewModel, navController = navController)
+//    val userViewModel = CasinoViewModel()
+//    val navController = rememberNavController()
+//    PokerScreen(userViewModel = userViewModel, navController = navController)
 }

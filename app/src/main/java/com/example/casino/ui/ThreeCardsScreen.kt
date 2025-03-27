@@ -24,8 +24,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 @Composable
 fun ThreeCardsScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
-    val botCards by userViewModel.listLinkCardsBotLiveData.observeAsState(emptyList())
-    val playerCards by userViewModel.listLinkCardsPlayerLiveData.observeAsState(emptyList())
+    val botCards by userViewModel.getListLinkCardsBotLiveData().observeAsState(emptyList())
+    val playerCards by userViewModel.getListLinkCardsPlayerLiveData().observeAsState(emptyList())
 
     Column(
         modifier = Modifier
@@ -121,7 +121,7 @@ fun handleBetClickThreeCards(userViewModel: CasinoViewModel, navController: NavC
 @Preview(showBackground = true)
 @Composable
 fun ThreeCardsScreenPreview() {
-    val userViewModel = CasinoViewModel() // Giả lập ViewModel
-    val navController = rememberNavController() // Giả lập NavController
-    ThreeCardsScreen(userViewModel = userViewModel, navController = navController)
+//    val userViewModel = CasinoViewModel()
+//    val navController = rememberNavController()
+//    ThreeCardsScreen(userViewModel = userViewModel, navController = navController)
 }

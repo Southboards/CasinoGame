@@ -21,8 +21,8 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun EndGameScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
-    val winLoseImage by userViewModel.linkWinLoseLiveData.observeAsState("")
-    val moneyBetValue by userViewModel.moneyBetLiveData.observeAsState(0)
+    val winLoseImage by userViewModel.getLinkWinLoseLiveData().observeAsState("")
+    val moneyBetValue by userViewModel.getMoneyBetLiveData().observeAsState(0)
 
     Column(
         modifier = Modifier
@@ -102,7 +102,7 @@ fun navigateToClientMenuBackStack(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun EndGameScreenPreview() {
-    val userViewModel = CasinoViewModel()
-    val navController = rememberNavController()
-    EndGameScreen(userViewModel = userViewModel, navController = navController)
+//    val userViewModel = CasinoViewModel()
+//    val navController = rememberNavController()
+//    EndGameScreen(userViewModel = userViewModel, navController = navController)
 }

@@ -13,10 +13,9 @@ public class Player {
     private String name;
     private int money;
 
-    public Player(String nameInput) {
+    public Player(String nameInput, int moneyInput) {
         name = nameInput;
-        // money = Databases::Get_Instance().Get_Amount(name);
-        money = 10000;
+        money = moneyInput;
     }
 
     public enum Rank {

@@ -23,8 +23,8 @@ import com.example.casino.viewmodel.CasinoViewModel
 @Composable
 fun ClientMenuScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
-    val linkRank = userViewModel.linkRankLiveData.observeAsState(initial = "")
-    val moneyPlayer = userViewModel.moneyPlayerLiveData.observeAsState(initial = 0)
+    val linkRank = userViewModel.getLinkRankLiveData().observeAsState(initial = "")
+    val moneyPlayer = userViewModel.getMoneyPlayerLiveData().observeAsState(initial = 0)
 
     val context = LocalContext.current
 
@@ -108,7 +108,7 @@ fun navigateToMainScreenBackStack(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun ClientMenuScreenPreview() {
-    val navController = rememberNavController()
-    val userViewModel = CasinoViewModel()
-    ClientMenuScreen(userViewModel = userViewModel, navController = navController)
+    //val navController = rememberNavController()
+    //val userViewModel = CasinoViewModel()
+    //ClientMenuScreen(userViewModel = userViewModel, navController = navController)
 }
