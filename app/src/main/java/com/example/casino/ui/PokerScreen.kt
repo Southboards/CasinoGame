@@ -20,6 +20,7 @@ import com.example.casino.viewmodel.CasinoViewModel
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.platform.LocalConfiguration
 
 @Composable
 fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
@@ -68,15 +69,15 @@ fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
             horizontalArrangement = Arrangement.Center
         ) {
             BetButton(betAmount = 100, onClick = { handleBetClickPoker(userViewModel, navController, 100) })
-            Spacer(modifier = Modifier.width(7.dp))
+            Spacer(modifier = Modifier.width(3.dp))
             BetButton(betAmount = 200, onClick = { handleBetClickPoker(userViewModel, navController, 200) })
-            Spacer(modifier = Modifier.width(7.dp))
+            Spacer(modifier = Modifier.width(3.dp))
             BetButton(betAmount = 500, onClick = { handleBetClickPoker(userViewModel, navController, 500) })
-            Spacer(modifier = Modifier.width(7.dp))
+            Spacer(modifier = Modifier.width(3.dp))
             FoldButton(onClick = { handleFoldClick(userViewModel, navController) })
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Row 4: Player cards
         CardRowPoker(userViewModel, cards = playerCards.take(2), isPlayer = true)
@@ -88,6 +89,18 @@ fun PokerScreen(userViewModel: CasinoViewModel, navController: NavController) {
 
 @Composable
 fun CardRowPoker(userViewModel: CasinoViewModel, cards: List<String>, isPlayer: Boolean) {
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+    var imageWidth = 0.dp;
+    var imageHeight = 0.dp;
+    if (cards.size == 5) {
+        imageWidth = screenWidth * 0.15f
+        imageHeight = screenHeight * 0.15f
+    } else {
+        imageWidth = (screenWidth * 0.25f)
+        imageHeight = screenHeight * 0.25f
+    }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -101,10 +114,12 @@ fun CardRowPoker(userViewModel: CasinoViewModel, cards: List<String>, isPlayer: 
                 val painter = painterResource(id = resourceId)
                 val modifier = Modifier
                     .padding(4.dp)
-                    .weight(1f)
-                    .aspectRatio(0.75f)
+                    .width(imageWidth)
+                    .height(imageHeight)
                     .clickable {
-                        userViewModel.Process_EI_Button_Card(index);
+                        if ((index <= 1) && isPlayer) {
+                            userViewModel.Process_EI_Button_Card(index)
+                        }
                     }
 
                 Image(
@@ -126,8 +141,8 @@ fun BetButton(betAmount: Int, onClick: () -> Unit) {
         onClick = onClick,
         modifier = Modifier
             .height(50.dp)
-            .width(85.dp)
-            .padding(8.dp),
+            .width(80.dp)
+            .padding(4.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
         Text(text = "$betAmount", fontSize = 12.sp)
@@ -141,11 +156,11 @@ fun FoldButton(onClick: () -> Unit) {
         onClick = onClick,
         modifier = Modifier
             .height(50.dp)
-            .width(90.dp)
-            .padding(8.dp),
+            .width(80.dp)
+            .padding(4.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Fold", fontSize = 12.sp)
+        Text(text = "Fold", fontSize = 10.sp)
     }
 }
 

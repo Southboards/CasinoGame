@@ -35,14 +35,14 @@ fun EndGameScreen(userViewModel: CasinoViewModel, navController: NavController) 
         Image(
             painter = painterResource(id = getImageResourceId(winLoseImage)),
             contentDescription = "Win Lose Image",
-            modifier = Modifier.size(170.dp)
+            modifier = Modifier.size(250.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = formatMoneyText(moneyBetValue),
-            fontSize = 25.sp,
+            fontSize = 28.sp,
             color = if (moneyBetValue >= 0) Color.Green else Color.Red
         )
 
@@ -63,7 +63,7 @@ fun EndGameScreen(userViewModel: CasinoViewModel, navController: NavController) 
                     .padding(8.dp),
                 shape = RoundedCornerShape(10.dp)
             ) {
-                Text(text = "Play Again", fontSize = 16.sp)
+                Text(text = "Play Again", fontSize = 18.sp)
             }
 
             Button(
@@ -77,7 +77,7 @@ fun EndGameScreen(userViewModel: CasinoViewModel, navController: NavController) 
                     .padding(8.dp),
                 shape = RoundedCornerShape(10.dp)
             ) {
-                Text(text = "Out Table", fontSize = 16.sp)
+                Text(text = "Out Table", fontSize = 18.sp)
             }
         }
     }
@@ -99,11 +99,10 @@ fun navigateToClientMenuBackStack(navController: NavController) {
     navController.popBackStack("client_menu_screen", false)
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun EndGameScreenPreview() {
-    val userViewModel = CasinoViewModel() // Giả lập ViewModel
-    val navController = rememberNavController() // Giả lập NavController
+    val userViewModel = CasinoViewModel()
+    val navController = rememberNavController()
     EndGameScreen(userViewModel = userViewModel, navController = navController)
 }

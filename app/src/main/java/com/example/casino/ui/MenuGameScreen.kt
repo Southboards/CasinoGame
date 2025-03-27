@@ -31,11 +31,11 @@ fun MenuGameScreen(userViewModel: CasinoViewModel, navController: NavController)
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 12.dp)
+                .height(60.dp)
         ) {
-            Text(text = "Three Cards", fontSize = 22.sp)
+            Text(text = "Three Cards", fontSize = 24.sp)
         }
-
 
         Button(
             onClick = {
@@ -44,9 +44,10 @@ fun MenuGameScreen(userViewModel: CasinoViewModel, navController: NavController)
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 12.dp)
+                .height(60.dp)
         ) {
-            Text(text = "Poker", fontSize = 22.sp)
+            Text(text = "Poker", fontSize = 24.sp)
         }
     }
 }

@@ -8,6 +8,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,9 +18,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -40,11 +40,9 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
     LaunchedEffect(message.value) {
         when (message.value) {
             "LOGIN SUCCESS", "REGISTER SUCCESS" -> {
-
                 navController.navigate("client_menu_screen")
             }
             "LOGIN FALSE", "REGISTER FALSE" -> {
-
                 Toast.makeText(context, "Login/Register Failed", Toast.LENGTH_SHORT).show()
             }
         }
@@ -53,14 +51,14 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = "CASINO WORLD",
             modifier = Modifier.padding(bottom = 32.dp),
-            fontSize = 36.sp,
+            fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF1E88E5),
             letterSpacing = 1.5.sp,
@@ -69,7 +67,9 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
             value = username.value,
             onValueChange = { username.value = it },
             label = { Text("Username") },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             singleLine = true,
         )
 
@@ -79,7 +79,9 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
             value = password.value,
             onValueChange = { password.value = it },
             label = { Text("Password") },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             visualTransformation = PasswordVisualTransformation(),
             singleLine = true,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -99,7 +101,9 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
             onClick = {
                 userViewModel.Process_EI_Button_Login(username.value, password.value)
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp)
         ) {
             Text("Login")
         }
@@ -110,7 +114,9 @@ fun MainScreen(userViewModel: CasinoViewModel, navController: NavController) {
             onClick = {
                 userViewModel.Process_EI_Button_Register(username.value, password.value)
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp)
         ) {
             Text("Register")
         }

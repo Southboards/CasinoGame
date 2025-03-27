@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.casino.viewmodel.CasinoViewModel
 import android.os.Handler
 import android.os.Looper
+import androidx.compose.ui.platform.LocalConfiguration
 
 @Composable
 fun ThreeCardsScreen(userViewModel: CasinoViewModel, navController: NavController) {
@@ -30,7 +31,8 @@ fun ThreeCardsScreen(userViewModel: CasinoViewModel, navController: NavControlle
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         CardRowThreeCard(userViewModel, cards = botCards, isPlayer = false)
 
@@ -55,6 +57,11 @@ fun ThreeCardsScreen(userViewModel: CasinoViewModel, navController: NavControlle
 
 @Composable
 fun CardRowThreeCard(userViewModel: CasinoViewModel, cards: List<String>, isPlayer: Boolean) {
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+    val imageWidth = screenWidth * 0.25f
+    val imageHeight = screenHeight * 0.25f
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -68,9 +75,12 @@ fun CardRowThreeCard(userViewModel: CasinoViewModel, cards: List<String>, isPlay
                 val painter = painterResource(id = resourceId)
                 val modifier = Modifier
                     .padding(8.dp)
-                    .size(100.dp)
+                    .width(imageWidth)
+                    .height(imageHeight)
                     .clickable {
-                        userViewModel.Process_EI_Button_Card(index);
+                        if ((index <= 2) && isPlayer) {
+                            userViewModel.Process_EI_Button_Card(index)
+                        }
                     }
 
                 Image(

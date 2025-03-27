@@ -33,7 +33,7 @@ fun ClientMenuScreen(userViewModel: CasinoViewModel, navController: NavControlle
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
 
         val painter: Painter = rememberAsyncImagePainter(
@@ -48,7 +48,7 @@ fun ClientMenuScreen(userViewModel: CasinoViewModel, navController: NavControlle
             painter = painter,
             contentDescription = "Rank Image",
             modifier = Modifier
-                .size(300.dp)
+                .size(250.dp)
                 .padding(bottom = 16.dp)
         )
 
@@ -56,25 +56,32 @@ fun ClientMenuScreen(userViewModel: CasinoViewModel, navController: NavControlle
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.weight(1f)
         ) {
-            Text(text = "Budget: ", fontSize = 28.sp, fontWeight = FontWeight.Bold) // Tăng font size cho "Budget" và làm đậm
-            Text(text = "$${moneyPlayer.value}", fontSize = 40.sp, fontWeight = FontWeight.Bold) // Tăng font size và làm đậm số tiền
+            Text(
+                text = "Budget: ",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = "$${moneyPlayer.value}",
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold
+            )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Button(
             onClick = { navigateToClientGameScreen(navController) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
-                .height(70.dp)
+                .height(60.dp)
         ) {
-            Text(text = "Play", fontSize = 30.sp)
+            Text(text = "Play", fontSize = 24.sp)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Nút "Log Out"
         Button(
             onClick = {
                 userViewModel.sendMessageLoginRegister("NONE")
@@ -83,9 +90,9 @@ fun ClientMenuScreen(userViewModel: CasinoViewModel, navController: NavControlle
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
-                .height(70.dp)
+                .height(60.dp)
         ) {
-            Text(text = "Log Out", fontSize = 30.sp)
+            Text(text = "Log Out", fontSize = 24.sp)
         }
     }
 }
